@@ -39,7 +39,9 @@ export const api = {
     update: (id, d) => req("PUT", `/computi/${id}`, d),
     delete: (id) => req("DELETE", `/computi/${id}`),
   },
-  stripe: {
+  confronto: {
+    analizza: (fd) => req("POST", "/confronto/analizza", fd, true),
+  },
     checkout: (plan) => req("POST", "/stripe/checkout", { plan }),
     portal: () => req("POST", "/stripe/portal"),
   },

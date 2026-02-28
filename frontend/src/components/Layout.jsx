@@ -5,6 +5,7 @@ const NAV = [
   { to: "/dashboard", icon: "⚡", label: "Dashboard" },
   { to: "/nuovo",     icon: "🏗️", label: "Nuovo Computo" },
   { to: "/storico",   icon: "📂", label: "Storico" },
+  { to: "/confronto", icon: "🔎", label: "Verifica Computo" },
   { to: "/pricing",   icon: "💎", label: "Piani" },
 ];
 

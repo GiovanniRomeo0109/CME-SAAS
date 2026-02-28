@@ -7,6 +7,7 @@ import CMEAgent from "./pages/CMEAgent.jsx";
 import History from "./pages/History.jsx";
 import ComputeDetail from "./pages/ComputeDetail.jsx";
 import Pricing from "./pages/Pricing.jsx";
+import Confronto from "./pages/Confronto.jsx";
 import Layout from "./components/Layout.jsx";
 
 function ProtectedRoute({ children }) {
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="storico"   element={<History />} />
             <Route path="storico/:id" element={<ComputeDetail />} />
             <Route path="pricing"   element={<Pricing />} />
+            <Route path="confronto" element={<Confronto />} />
           </Route>
         </Routes>
       </BrowserRouter>

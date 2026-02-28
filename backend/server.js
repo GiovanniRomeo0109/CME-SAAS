@@ -29,6 +29,7 @@ app.use("/api/auth",    require("./routes/auth"));
 app.use("/api/ai",      require("./routes/ai"));
 app.use("/api/computi", require("./routes/computi"));
 app.use("/api/stripe",  require("./routes/stripe"));
+app.use("/api/confronto", require("./routes/confronto"));
 
 // Health check
 app.get("/health", (req, res) => res.json({ status: "ok", timestamp: new Date().toISOString() }));
@@ -46,9 +47,4 @@ app.listen(PORT, () => {
   console.log(`\n🏗️  CME Agent Backend avviato su porta ${PORT}`);
   console.log(`   ENV: ${process.env.NODE_ENV || "development"}`);
   console.log(`   DB:  ${process.env.DB_PATH || "data.db"}\n`);
-});
-const path = require("path");
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
