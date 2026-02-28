@@ -42,6 +42,7 @@ export const api = {
   confronto: {
     analizza: (fd) => req("POST", "/confronto/analizza", fd, true),
   },
+  stripe: {
     checkout: (plan) => req("POST", "/stripe/checkout", { plan }),
     portal: () => req("POST", "/stripe/portal"),
   },
