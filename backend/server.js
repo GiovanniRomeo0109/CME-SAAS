@@ -34,8 +34,18 @@ app.use("/api/confronto", require("./routes/confronto"));
 // Health check
 app.get("/health", (req, res) => res.json({ status: "ok", timestamp: new Date().toISOString() }));
 
-// ── 404 & Error handlers ──────────────────────────────────────────────────────
-app.use((req, res) => res.status(404).json({ error: "Endpoint non trovato" }));
+// ── SPA catch-all ────────────────────────────────────────────────────────────
+const path = require("path");
+const DIST = path.join(__dirname, "../frontend/dist");
+app.use(express.static(DIST));
+app.get("*", (req, res) => {
+  if (req.path.startsWith("/api/")) {
+    return res.status(404).json({ error: "Endpoint non trovato" });
+  }
+  res.sendFile(path.join(DIST, "index.html"));
+});
+
+// ── Error handler ─────────────────────────────────────────────────────────────
 app.use((err, req, res, _next) => {
   console.error(err);
   res.status(500).json({ error: err.message || "Errore interno del server" });
